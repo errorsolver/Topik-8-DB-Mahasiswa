@@ -10,6 +10,11 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: TampilDataMhs());
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      debugShowMaterialGrid: false,
+      showSemanticsDebugger: false,
+      home: TampilDataMhs(),
+    );
   }
 }

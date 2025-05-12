@@ -100,80 +100,79 @@ class _TampilDataMhsState extends State<TampilDataMhs> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Read Mahasiswa Data',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Listview data mahasiswa'),
-          backgroundColor: Colors.blue,
-        ),
-        body: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    _showCreatePopup(context);
-                  },
-                  style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.white,
-                    backgroundColor: Colors.green,
-                  ),
-                  child: Text('Create Mahasiswa'),
-                ),
-                SizedBox(width: 10),
-              ],
-            ),
-            Expanded(
-              child: ListView.builder(
-                itemCount: mhsData.length,
-                itemBuilder: (context, index) {
-                  return Row(
-                    children: [
-                      Expanded(
-                        child: ListTile(
-                          title: Text(mhsData[index]['nim']),
-                          subtitle: Text(mhsData[index]['name']),
-                        ),
-                      ),
-                      ElevatedButton(
-                        onPressed: () {
-                          _showUpdatePopup(
-                            context,
-                            mhsData[index]['nim'],
-                            mhsData[index]['name'],
-                            mhsData[index]['sex'],
-                            mhsData[index]['enroll'],
-                          );
-                        },
-                        child: Text('Update'),
-                      ),
-                      SizedBox(width: 10),
-                      ElevatedButton(
-                        onPressed: () {
-                          _showDeletePopup(
-                            context,
-                            mhsData[index]['nim'],
-                            mhsData[index]['name'],
-                            mhsData[index]['sex'],
-                            mhsData[index]['enroll'],
-                          );
-                        },
-                        style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.white, // warna teks
-                          backgroundColor: Colors.red, // warna tombol
-                        ),
-                        child: Text('Delete'),
-                      ),
-                      SizedBox(width: 10),
-                    ],
-                  );
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Listview data mahasiswa'),
+        backgroundColor: Colors.blue,
+        foregroundColor: Colors.white,
+      ),
+      body: Column(
+        children: [
+          SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  _showCreatePopup(context);
                 },
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Colors.green,
+                ),
+                child: Text('Create Mahasiswa'),
               ),
+              SizedBox(width: 10),
+            ],
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: mhsData.length,
+              itemBuilder: (context, index) {
+                return Row(
+                  children: [
+                    Expanded(
+                      child: ListTile(
+                        title: Text(mhsData[index]['nim']),
+                        subtitle: Text(mhsData[index]['name']),
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        _showUpdatePopup(
+                          context,
+                          mhsData[index]['nim'],
+                          mhsData[index]['name'],
+                          mhsData[index]['sex'],
+                          mhsData[index]['enroll'],
+                        );
+                      },
+                      child: Text('Update'),
+                    ),
+                    SizedBox(width: 10),
+                    ElevatedButton(
+                      onPressed: () {
+                        _showDeletePopup(
+                          context,
+                          mhsData[index]['nim'],
+                          mhsData[index]['name'],
+                          mhsData[index]['sex'],
+                          mhsData[index]['enroll'],
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.white, // warna teks
+                        backgroundColor: Colors.red, // warna tombol
+                      ),
+                      child: Text('Delete'),
+                    ),
+                    SizedBox(width: 10),
+                  ],
+                );
+              },
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
